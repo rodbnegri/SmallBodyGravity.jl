@@ -1,7 +1,9 @@
 
 # SmallBodyGravity
 
-[![Build Status](https://github.com/rodbnegri/SmallBodyGravity.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/rodbnegri/SmallBodyGravity.jl/actions/workflows/CI.yml?query=branch%3Amaster)
+
+[![Build Status](https://github.com/rodbnegri/SmallBodyGravity.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/rodbnegri/SmallBodyGravity.jl/actions/workflows/CI.yml?query=branch%3Amaster) ![Status](https://img.shields.io/badge/status-WIP-yellow)
+
 
 This Julia package provides the equations to model the gravity field of small bodies. The current implementation focuses on the mathematical equations for modeling the gravity field, as described in the papers:
 
