@@ -5,8 +5,8 @@
 
 This Julia package provides the equations to model the gravity field of small bodies. The current implementation focuses on the mathematical equations for modeling the gravity field, as described in the papers:
 
-- **[1] paper1**
-- **[2] paper2**
+- **Batista Negri, R. and Prado, A.F., 2022. Autonomous and Robust Orbit-Keeping for Small-Body Missions. Journal of Guidance, Control, and Dynamics, 45(3), pp.587-598.**
+- **Negri, R.B., Prado, A.F., Chagas, R.A. and Moraes, R.V., 2024. Autonomous Rapid Exploration in Close-Proximity of Asteroids. Journal of Guidance, Control, and Dynamics, 47(5), pp.914-933.**
 
 ## Package Overview
 
