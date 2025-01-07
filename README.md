@@ -11,12 +11,12 @@ This Julia package provides the equations to model the gravity field of small bo
 ## Package Overview
 
 At this stage, the package includes the core equations for the gravity field model of small bodies. The polyhedron model of the small body is represented, but please note that the coordinates of the polyhedron must be aligned as follows:
-- The origin should be at the center of mass of the small body.
-- The axes should be aligned with the principal axes of inertia.
+- The origin should be at the center of mass of the small body for the chosen mass.
+- The axes should be aligned with the principal axes of inertia for the chosen mass.
 
 ## Future Work
 
-Currently, the code to calculate the center of mass and align the axes of inertia is implemented in MATLAB. I am in the process of transitioning this MATLAB code to Julia, and this functionality will be integrated into the package in the future.
+Currently, the code to calculate the center of mass and align the axes of inertia for the chosen mass is implemented in MATLAB. I am in the process of transitioning this MATLAB code to Julia, and this functionality will be integrated into the package in the future.
 
 ## Installation
 
