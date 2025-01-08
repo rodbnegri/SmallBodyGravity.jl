@@ -12,8 +12,8 @@ function polyhedron_correction(vertex_old::Matrix{Float64}, faces::Matrix{Int}, 
         Volume += dot(cross(vertex_2, vertex_3), vertex_1) / 6.0
     end
     sigma = M / Volume
-    
-    # Finding the center of mass
+   
+  # Finding the center of mass
     R = zeros(3)
     for simplice in 1:size(faces, 1)
         vertex_1 = vertex_old[faces[simplice, 1], :]
@@ -66,8 +66,6 @@ function polyhedron_correction(vertex_old::Matrix{Float64}, faces::Matrix{Int}, 
     a = sqrt(5 * (B + C - A) / 2 / M)
     b = sqrt(5 * (A + C - B) / 2 / M)
     c = sqrt(5 * (A + B - C) / 2 / M)
-    
-    
     
     
     # Finding new properties
@@ -140,6 +138,26 @@ function polyhedron_correction(vertex_old::Matrix{Float64}, faces::Matrix{Int}, 
         write(file, "\n")
         write(file, "Center of mass [km]: $(R)\n")
     end
+    
+    # Remove the extension from the filename_in
+    filename_base = splitext(filename_in)[1]
+    
+    # Construct the new filename
+    filename_out = "$(filename_base)_corrected.obj"
+    
+    # Make new .obj file
+    open(filename_out, "w") do file
+        # Write vertex coordinates, each row as a 'v' line
+        for i in 1:size(vertex, 1)
+            write(file, "v\t$(vertex[i, 1])\t$(vertex[i, 2])\t$(vertex[i, 3])\n")
+        end
+        
+        # Write faces, each row as an 'f' line
+        for j in 1:size(faces, 1)
+            write(file, "f\t$(faces[j, 1])\t$(faces[j, 2])\t$(faces[j, 3])\n")
+        end
+    end
+    
     
     return vertex
 end
