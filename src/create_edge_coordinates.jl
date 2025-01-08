@@ -1,4 +1,3 @@
-using LinearAlgebra, Printf, DelimitedFiles
 
 function create_edge_coordinates(filename_in::String, filename_out::String, folder_path::String, M::Float64)
     # This function generates files to represent the edges of a polyhedron.
