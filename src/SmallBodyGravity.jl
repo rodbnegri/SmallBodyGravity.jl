@@ -1,5 +1,6 @@
 module SmallBodyGravity
 
+using Printf
 
 include("spherical_harmonics.jl")
 include("polyhedron_model.jl")
