@@ -3,6 +3,9 @@ uuid = "66e334b4-30c1-4be0-8331-1eb48c315f23"
 authors = ["Rodolfo Batista Negri"]
 version = "1.0.0-DEV"
 
+[deps]
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
 [compat]
 julia = "1.6.7"
 
@@ -11,4 +14,3 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
 test = ["Test"]
-
