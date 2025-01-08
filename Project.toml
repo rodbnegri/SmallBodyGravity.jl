@@ -11,3 +11,9 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
 test = ["Test"]
+
+[dependencies]
+Printf = "da1fd8a6-2b7f-11e8-4c79-e61a86e64d0c"
+LinearAlgebra = "2f80f16e-0e26-5a0e-86a7-f258f99d1f22"
+DelimitedFiles = "7a1d42d5-0fa2-47f9-b6a9-6b5184d2b8e3"
+
