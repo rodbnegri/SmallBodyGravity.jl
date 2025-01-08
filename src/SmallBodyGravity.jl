@@ -1,8 +1,8 @@
 module SmallBodyGravity
 
-using Printf
-using LinearAlgebra
-using DelimitedFiles
+using Pkg
+Pkg.add("Printf")
+
 
 include("spherical_harmonics.jl")
 include("polyhedron_model.jl")
