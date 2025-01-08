@@ -1,6 +1,5 @@
 module SmallBodyGravity
 
-using Printf
 using LinearAlgebra, DelimitedFiles
 
 include("spherical_harmonics.jl")
@@ -14,4 +13,5 @@ export polyhedron_correction
 export create_edge_coordinates
 
 end
+
 
