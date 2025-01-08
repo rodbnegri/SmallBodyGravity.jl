@@ -1,5 +1,5 @@
 using SmallBodyGravity
-using Printf
+
 include("polyhedron_data.jl")
 
 function process_polyhedron(filename::String)
