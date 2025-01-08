@@ -1,4 +1,3 @@
-using LinearAlgebra, Printf
 
 function polyhedron_correction(vertex_old::Matrix{Float64}, faces::Matrix{Int}, M::Float64, filename_in::String)
     # Models from: Dobrovolskis - Inertia of Any Polyhedron
