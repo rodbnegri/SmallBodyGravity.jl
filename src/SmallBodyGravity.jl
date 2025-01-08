@@ -1,6 +1,5 @@
 module SmallBodyGravity
 
-using LinearAlgebra, DelimitedFiles
 
 include("spherical_harmonics.jl")
 include("polyhedron_model.jl")
