@@ -60,24 +60,23 @@ function polyhedron_data(file_in::String, file_edge::String)
 	# Normal vector to each face
 	n_f = zeros(size(r_f_1))
 	# normal to each edge
-	n_f_e = n_f
-	n_fp_e = n_f
-  #TODO: tem ALGUM ERROR AQUI
-	for ii = 1:size(r_f_1,1)
-		nonunitary_n_f = cross(r_f_2[ii,:] - r_f_1[ii,:], r_f_3[ii,:]- r_f_2[ii,:])
-		n_f[ii,:] = nonunitary_n_f / norm(nonunitary_n_f)
+	n_f_e = zeros(size(r_e_1))
+	n_fp_e =zeros(size(r_e_1))
+	
+	for ii = 1:size(r_e_1,1)
+		if ii<=size(r_f_1,1)
+			nonunitary_n_f = cross(r_f_2[ii,:] - r_f_1[ii,:], r_f_3[ii,:]- r_f_2[ii,:])
+			n_f[ii,:] = nonunitary_n_f / norm(nonunitary_n_f)
+		end
 		norm_btw_centroids = norm( centroid_edges[ii,:] - centroid_faces[edges[ii,3],:] )
 		nn_paralel = (centroid_edges[ii,:] - centroid_faces[edges[ii,3],:]) / norm_btw_centroids# versor from centroid of the face to the edge's centroid
 		nn_perpendicular = cross( nn_paralel , e_e_vec[ii,:])# vector perpendicular to edge and face
 		n_f_e[ii,:] = cross(nn_perpendicular,e_e_vec[ii,:]) / norm(cross(nn_perpendicular,e_e_vec[ii,:]))  # versor parallel to face and perpendicular to edge
 		theta = acosd(dot(nn_paralel , n_f_e[ii,:]))
-    @show n_f_e[ii,:], theta
 		if theta>90.0
-			n_f_e = -n_f_e # making sure n_f_e is pointing outside its face
+			n_f_e[ii,:] = -n_f_e[ii,:] # making sure n_f_e is pointing outside its face
 		end
-    @show n_f_e[ii,:]
-    sleep(10)
-
+		
 		# doing the same for n_fp_e
 		norm_btw_centroids = norm( centroid_edges[ii,:] - centroid_faces[edges[ii,4],:] )
 		nn_paralel = (centroid_edges[ii,:] - centroid_faces[edges[ii,4],:]) / norm_btw_centroids# versor from centroid of the face to the edge's centroid
@@ -85,11 +84,11 @@ function polyhedron_data(file_in::String, file_edge::String)
 		n_fp_e[ii,:] = cross(nn_perpendicular,e_e_vec[ii,:]) / norm(cross(nn_perpendicular,e_e_vec[ii,:]))  # versor parallel to face and perpendicular to edge
 		theta = acosd(dot(nn_paralel , n_fp_e[ii,:]))
 		if theta>90.0
-			n_fp_e= -n_fp_e # making sure n_fp_e is pointing outside its face
+			n_fp_e[ii,:]= -n_fp_e[ii,:] # making sure n_fp_e is pointing outside its face
 		end
 		
 	end
-	return	
+	
 	
 	# Create data for other programs
 	open("edges.dat", "w") do f_edges

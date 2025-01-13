@@ -1,4 +1,6 @@
 using SmallBodyGravity
+using Printf, DelimitedFiles, LinearAlgebra
+
 
 include("polyhedron_data.jl")
 
