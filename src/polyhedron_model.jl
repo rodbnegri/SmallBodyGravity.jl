@@ -29,7 +29,7 @@
 # Returns:
 # - U: Gravitational potential
 # - F: Gravitational acceleration
-# - Lapl: Laplacian of the potential
+# - Lapl: Laplacian of the potential (can be used to detect when r_vec is inside the body, because inside the body the Laplacian is not zero)
 
 function polyhedron_model(p, r_vec)
     
