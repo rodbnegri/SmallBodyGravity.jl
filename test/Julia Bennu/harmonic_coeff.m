@@ -1,3 +1,36 @@
+%%%%%%% THIS CODE WAS NOT DEVELOPED FOR SHARING, SO PLEASE WAIT FOR IT TO
+%%%%%%% BE TRANSFERRED TO JULIA.
+
+
+
+% ------------------------------------------------------------------------
+% Code Developed by Dr. Rodolfo Batista Negri
+%
+% Based on the work of  Werner and Scheeres [1]. This code should not be shared
+% or distributed without prior consent from Dr. Negri (rodolfobnegri@yahoo.com.br).
+%
+% If you use this code in any manner, whether integrally, partially, or as
+% inspiration, please cite references [2] and [3]. For instance:
+% "... used the code developed by Negri [2,3], which applies the asteroid model 
+% of Werner and Scheeres [1]."
+%
+% Please note that Dr. Negri does not assume any responsibility for the misuse 
+% of this code. He is unable to provide assistance or support for its implementation.
+%
+% [1] Werner, R.A. and Scheeres, D.J., 1996. Exterior gravitation of a polyhedron 
+% derived and compared with harmonic and mascon gravitation representations of 
+% asteroid 4769 Castalia. Celestial Mechanics and Dynamical Astronomy, 65, pp.313-344.
+%
+% [2] Negri, R. B., “A Study of Dynamics, Guidance, Navigation, and Control 
+% Applied to Asteroid Deflection," Ph.D. thesis, National Institute for Space Research,
+% São José dos Campos, 2022.
+%
+% [3] Negri, R. B. and Prado, A.F. B. A., 2022. Autonomous and Robust Orbit-Keeping 
+% for Small-Body Missions. Journal of Guidance, Control, and Dynamics, 45(3), pp.587-598.
+% ------------------------------------------------------------------------
+
+
+
 clc
 clear
 close all
