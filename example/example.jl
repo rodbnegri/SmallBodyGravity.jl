@@ -30,7 +30,7 @@ r_f_3 = readdlm("r_f_3.dat")
 
 p = centroid_edges, centroid_faces, e_e, edges, faces, vertex, n_f, n_f_e, n_fp_e, r_e_1, r_e_2, r_f_1, r_f_2, r_f_3, G, sigma
 
-r_vec = [2e3; 0; 0]
+r_vec = [2e3, 0.0, 0.0]
 
 @show size(r_vec)
 
