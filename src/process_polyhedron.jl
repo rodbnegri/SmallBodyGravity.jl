@@ -1,5 +1,4 @@
 
-using SmallBodyGravity
 
 """
     process_polyhedron(filename::String, Mass::Float64, folder_path::String = pwd())
