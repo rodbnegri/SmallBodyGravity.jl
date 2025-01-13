@@ -48,6 +48,7 @@ function polyhedron_model(p, r_vec)
     rf = centroid_faces - repeat(r_vec, size(centroid_faces, 1), 1)
 
     # Distance from each edge's vertex to the field point
+   @show r_vec
     re1 = sqrt.(sum((r_e_1 - repeat(r_vec, size(centroid_edges, 1), 1)).^2, dims=2))
     re2 = sqrt.(sum((r_e_2 - repeat(r_vec, size(centroid_edges, 1), 1)).^2, dims=2))
 
