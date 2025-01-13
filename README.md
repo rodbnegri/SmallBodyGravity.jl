@@ -16,11 +16,13 @@ This Julia package provides the equations to model the gravity field of small bo
 
 [3] **Negri, R. B. (2022). Estudo de dinâmica, guiagem, navegação e controle aplicado à deflexão de asteroides. [Doctoral thesis, Instituto Nacional de Pesquisas Espaciais (INPE)]. Instituto Nacional de Pesquisas Espaciais. http://urlib.net/ibi/8JMKD3MGP3W34T/46L9G6P**
 
-If you use this code for academic purposes, please consider citing one of the references above. This would encourage me to share more of my work. For example: "We used the SmallBodyGravity package in Julia, originally developed by Dr. Negri for the works [1, 2, 3]."
+If you use this code for academic purposes, please consider citing one of the references above. This would encourage me to share more of my work. For example: "[...] we used the SmallBodyGravity package in Julia, originally developed by Dr. Negri for the works [1, 2, 3]."
 
 ## Package Overview
 
-The `process_polyhedron` function pre-processes a polyhedron file in the Wavefront .obj format, which should only contain "v" (vertices) and "f" (faces) lines (other types of data are not currently supported). The function aligns the coordinates of the polyhedron with the principal axes of the small body, based on the specified mass, and generates the necessary data for gravity field calculations. 
+### First Run `process_polyhedron`
+
+The `process_polyhedron` function pre-processes a polyhedron file in the Wavefront .obj format, which should only contain "v" (vertices) and "f" (faces) lines (other types of data are not currently supported). You can download OBJ small body shapes from https://sbn.psi.edu/pds/shape-models/ . The `process_polyhedron` aligns the coordinates of the polyhedron with the principal axes of inertia of the small body, based on the specified mass, and generates the necessary data for gravity field calculations. 
 
 Additionally, the function generates a `polyhedron_properties.txt` file, which includes properties of the small body (e.g., volume, density, equivalent ellipsoid, etc.). A corrected `.obj` file is also produced.
 
@@ -31,10 +33,9 @@ Once the `process_polyhedron()` function has been executed (you just need to exe
 Refer to the `example.jl` file located in the `example` folder for a full example of usage.
 
 
-
 ## Future Work
 
-A MATLAB code that calculates the harmonic coefficients from the small body's polyhedron is being transitioned to Julia and it should be available in the coming months.
+A MATLAB code that calculates the spherical harmonic coefficients from the small body's polyhedron is being transitioned to Julia and it should be available in the coming months.
 
 ## Installation
 
