@@ -33,6 +33,8 @@
 
 function polyhedron_model(p, r_vec)
 
+@show test
+
     # Unpack parameters from input tuple `p`
     centroid_edges, centroid_faces, e_e, edges, face, vertex, n_f, n_f_e, n_fp_e, r_e_1, r_e_2, r_f_1, r_f_2, r_f_3, G, sigma = p
 

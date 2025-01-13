@@ -32,6 +32,5 @@ p = centroid_edges, centroid_faces, e_e, edges, faces, vertex, n_f, n_f_e, n_fp_
 
 r_vec = [2e3, 0.0, 0.0]
 
-@show size(r_vec)
 
 polyhedron_model(p, r_vec)
