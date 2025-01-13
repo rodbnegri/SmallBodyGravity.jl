@@ -68,7 +68,7 @@ function polyhedron_model(p, r_vec)
         
         sum_e_U = sum_e_U + re[m,:]'*Ee*re[m,:]*L_e;
         
-        sum_e_F = sum_e_F .+ Ee*re[m,:]*L_e;
+        sum_e_A = sum_e_A .+ Ee*re[m,:]*L_e;
         
         
         if m <= size(centroid_faces,1) # Sum over facets (inside edges' sum to save computational time)
