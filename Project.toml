@@ -1,7 +1,7 @@
 name = "SmallBodyGravity"
 uuid = "66e334b4-30c1-4be0-8331-1eb48c315f23"
 authors = ["Rodolfo Batista Negri"]
-version = "0.1.0-DEV"
+version = "0.1.0"
 
 [deps]
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
