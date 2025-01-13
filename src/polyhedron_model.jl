@@ -24,7 +24,7 @@
 #     r_f_1, r_f_2, r_f_3: Vertices associated with each face
 #     G: Gravitational constant
 #     sigma: Density of the small body
-# - r_vec: The vector representing the field point where the potential, force, and Laplacian are to be calculated.
+# - r_vec: The vector representing the field point where the potential, force, and Laplacian are to be calculated (note that this should be defined in the body-fixed frame).
 #
 # Returns:
 # - U: Gravitational potential

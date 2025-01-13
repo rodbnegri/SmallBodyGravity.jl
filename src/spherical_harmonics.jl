@@ -4,24 +4,24 @@
 # Description: 
 # This function computes the potential and acceleration for a spacecraft's position using the 
 # spherical harmonics method. The expansion is based on the coefficients of the 
-# gravitational field of the central body (C and S coefficients), and the satellite's position 
-# in space (r_vec). 
+# gravitational field of the central body (C and S coefficients), and the spacecraft's position 
+# in space (r_vec) (note that this should be defined in the body-fixed frame). 
 # Reference: as described in "Satellite Orbits" by Montenbruck (Page 66).
 # Arguments:
 # N      -> Order of the multipolar expansion (an integer).
-# r_vec  -> A vector containing the Cartesian coordinates of the satellite (x, y, z).
+# r_vec  -> A vector containing the Cartesian coordinates of the spacecraft (x, y, z).
 # R0     -> The reference radius of the central body.
 # C, S   -> Coefficients associated with the cosine and sine components of the expansion.
 # mu     -> Gravitational parameter of the central body (GM, where G is the gravitational constant and M is the mass).
 
 # Returns:
-# F -> The total acceleration vector experienced by the satellite due to gravitational forces.
-# U -> The gravitational potential at the satellite's location.
+# F -> The total acceleration vector experienced by the spacecraft due to gravitational forces.
+# U -> The gravitational potential at the spacecraft's location.
 
 
 
 function spherical_harmonics(N,r_vec,R0,C,S,mu)
-    # Pag. 66 - Montenbruck - Satellite orbits
+    # Pag. 66 - Montenbruck - spacecraft orbits
     # N -> order of the expansion
     # θ -> latitude
     # λ -> longitude

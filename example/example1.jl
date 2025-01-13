@@ -6,7 +6,7 @@ using ProgressMeter
 
 # Constants and polyhedron processing
 bennu_mass = 7.329e10
-polyhedron_file = "bennu.obj"
+polyhedron_file = "arrokoth.obj"
 G = 6.6743e-11
 
 process_polyhedron(polyhedron_file, bennu_mass)
