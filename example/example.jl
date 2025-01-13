@@ -46,8 +46,8 @@ e_e .*= 1000  # m
 p = (centroid_edges, centroid_faces, e_e, edges, faces, vertex, n_f, n_f_e, n_fp_e, r_e_1, r_e_2, r_f_1, r_f_2, r_f_3, G, sigma)
 
 # Set up grid for x and z
-x_range = -2000:2.0:2000  # x-coordinates (in meters)
-z_range = -2000:2.0:2000  # z-coordinates (in meters)
+x_range = -1000:20.0:1000  # x-coordinates (in meters)
+z_range = -1000:20.0:1000  # z-coordinates (in meters)
 
 # Initialize array to store gravitational potential U
 U_grid = zeros(length(z_range), length(x_range))
@@ -61,23 +61,24 @@ for (i, z) in enumerate(z_range)
         for (j, x) in enumerate(x_range)
                 local r_vec = [x, 0.0, z]  # Field point
                 U_grid[i, j], Grav_Acceleration, Laplacian = polyhedron_model(p, r_vec)  # Compute gravitational potential
-                if Laplacian <= 1e-18 # so that the potential inside the body is not plotted
+                if abs(Laplacian) >= 1e-18 # so that the potential inside the body is not plotted
                         U_grid[i,j] = NaN
                 end
-        # Update progress
-        next!(progress)
-    end
+                # Update progress
+                next!(progress)
+        end
 end
 
 # Plot the results
-heatmap(
-x_range, z_range, U_grid;
-xlabel = "x (m)", ylabel = "z (m)",
+p = heatmap(
+x_range ./ 1e3, z_range ./ 1e3, U_grid;
+xlabel = "x [km]", ylabel = "z [km]",
 title = "Gravitational Potential U(x, z)",
 colorbar_title = "U (m²/s²)",
 aspect_ratio = :equal,
-c = :viridis
+c = :viridis,
+size = (1200, 1000)  # Set the size of the plot
 )
 
-# Save the plot as an image
-savefig("gravitational_potential.png")
+# Save the plot
+savefig(p, "gravitational_potential.png")  # Use savefig to save the plot created with specified size
