@@ -56,9 +56,9 @@ function polyhedron_model(p, r_vec)
     rf3_norm = sqrt.( sum( rf3.^2 , dims=2 ) );
     
     sum_e_U = 0.;
-    sum_e_F = 0.;
+    sum_e_A = 0.;
     sum_f_U = 0.;
-    sum_f_F = 0.;
+    sum_f_A = 0.;
     Lapl = 0.;
     for m = 1:size(centroid_edges,1) # Sum over edges
         
@@ -81,7 +81,7 @@ function polyhedron_model(p, r_vec)
             
             sum_f_U = sum_f_U + rf[m,:]'*Ff*rf[m,:]*omega_f;
             
-            sum_f_F = sum_f_F .+ Ff*rf[m,:]*omega_f;
+            sum_f_A = sum_f_A .+ Ff*rf[m,:]*omega_f;
             
             Lapl = Lapl - G * sigma * omega_f; # Laplacian
             
@@ -90,7 +90,7 @@ function polyhedron_model(p, r_vec)
     end
     U = G * sigma / 2 * ( sum_e_U - sum_f_U ); # Potential
     
-    F = - G * sigma * ( sum_e_F - sum_f_F ); # Acceleration
+    A = - G * sigma * ( sum_e_A - sum_f_A ); # Acceleration
     
-    return U, F, Lapl
+    return U, A, Lapl
 end
