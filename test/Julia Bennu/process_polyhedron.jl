@@ -2,7 +2,6 @@ using SmallBodyGravity
 using Printf, DelimitedFiles, LinearAlgebra
 
 
-include("polyhedron_data.jl")
 
 function process_polyhedron(filename::String)
     # Ensure the file exists in the current working directory
