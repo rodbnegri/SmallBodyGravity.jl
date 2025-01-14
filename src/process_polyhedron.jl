@@ -14,8 +14,6 @@ Processes a polyhedron file by generating edge coordinates and additional data f
 
 function process_polyhedron(filename::String, Mass::Float64, folder_path::String = pwd()) 
    
-  println(folder_path)
-  println(filename)
     # Construct the full file path 
     file_path = joinpath(folder_path, filename)
     # Ensure the specified file exists
