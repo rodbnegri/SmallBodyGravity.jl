@@ -1,5 +1,5 @@
 # This script will use the SmallBodyGravity package to calculate the orbit of a spacecraft
-# around the asteroid Itokawa (in an inertial frame)
+# around the asteroid Bennu (in an inertial frame)
 
 
 using DifferentialEquations # to integrate the trajectory 
@@ -32,19 +32,19 @@ function EoM(dX, X, p, t)
 	dX[4:6] = R_I_to_BF' * Acceleration
 end
 
-omega = 12.132 / 3600.0 # rotation period [rad/s]
-mass = 3.51e10
-polyhedron_file = "itokawa.obj"
+omega = 4.296057 / 3600.0 # rotation period [rad/s]
+mass = 7.329e10
+polyhedron_file = "bennu.obj"
 G = 6.6743e-11
 
 # integration time
-tf = 24.0 * 3600.0
+tf = 2 * 24.0 * 3600.0
 
 process_polyhedron(polyhedron_file, mass)
 
-# Itokawa density for the used mass and shape 
+# Bennu density for the used mass and shape 
 # (!!! use the density from the generated `polyhedron_properties.txt` file !!!)
-sigma = 2668.0238653666765
+sigma = 1177.0535049082152
 
 # Load all necessary data files into variables
 centroid_edges = readdlm("centroid_edges.dat")
@@ -77,9 +77,9 @@ e_e .*= 1000  # m
 p_polyhedron = (centroid_edges, centroid_faces, e_e, edges, faces, vertex, n_f, n_f_e, n_fp_e, r_e_1, r_e_2, r_f_1, r_f_2, r_f_3, G, sigma)
 p = (omega, p_polyhedron)
 
-# Initial conditions (example values, adjust as needed)
-r0 = [0.0, 0.0, 6.0e3]  # initial position in meters
-v0 = [-0.0, 0.2, 0.0]     # initial velocity in m/s
+# Initial conditions 
+r0 = [0.0, 100.0, 400.0]  # initial position in meters
+v0 = [-0.08, 0.08, 0.0]     # initial velocity in m/s
 X0 = vcat(r0, v0)
 
 # Time span for integration
