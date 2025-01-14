@@ -1,4 +1,5 @@
-
+# This script will use the SmallBodyGravity package to plot the gravitational potential of the
+# asteroid Bennu on the plane y=0 (in the body-fixed frame)
 using SmallBodyGravity
 using DelimitedFiles
 using Plots
@@ -6,7 +7,7 @@ using ProgressMeter
 
 # Constants and polyhedron processing
 bennu_mass = 7.329e10
-polyhedron_file = "arrokoth.obj"
+polyhedron_file = "bennu.obj"
 G = 6.6743e-11
 
 process_polyhedron(polyhedron_file, bennu_mass)

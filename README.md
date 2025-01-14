@@ -16,7 +16,7 @@ This Julia package provides the equations to model the gravity field of small bo
 
 [3] **Negri, R. B. (2022). Estudo de dinâmica, guiagem, navegação e controle aplicado à deflexão de asteroides. [Doctoral thesis, Instituto Nacional de Pesquisas Espaciais (INPE)]. Instituto Nacional de Pesquisas Espaciais. http://urlib.net/ibi/8JMKD3MGP3W34T/46L9G6P**
 
-If you use this code for academic purposes, please consider citing one of the references above. This would encourage me to share more of my work. For example: "[...] we used the SmallBodyGravity package in Julia, originally developed by Dr. Negri for the works [1, 2, 3]."
+If you use this code for academic purposes, please consider citing one of the references above. This would encourage me to share more of my work. For example: "[...] we used the SmallBodyGravity package in Julia, originally developed to compute spacecraft's trajectory in Negri et al. [1, 2, 3]."
 
 ## Package Overview
 
