@@ -22,7 +22,7 @@ function create_edge_coordinates(filename_in::String, filename_out::String, fold
         elseif tokens[1] == "f"
             push!(faces, parse.(Int, tokens[2:end]))
         else
-            error(raw"Invalid .obj file format: The file should contain only 'v' and 'f' lines. Please check your .obj file in a text editor to ensure it adheres to this format. Check the .obj file examples in the SmallBodyGravity's GitHub page to check how it should be.")
+            error(raw"Invalid .obj file format: The file should contain only 'v' and 'f' lines. Please check your .obj file in a text editor to ensure it adheres to this format. Check the .obj file examples in the SmallBodyGravity's GitHub page to check how it should look like.")
         end
     end
     
