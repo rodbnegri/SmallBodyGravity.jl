@@ -15,37 +15,17 @@ function create_edge_coordinates(filename_in::String, filename_out::String, fold
     vertices = []
     faces = []
     
-for line in data
-    tokens = split(line, r"\s+")  # Split on arbitrary whitespace using a regex
-    
-    # Ensure the line is not empty and has at least 2 tokens
-    if isempty(tokens)
-        continue  # Skip empty lines
-    end
-    
-    if tokens[1] == "v"
-        # Ensure there are at least 2 tokens (one for 'v' and one for the first number)
-        if length(tokens) > 1
-            # Filter the tokens that can be parsed as Float64
-            floats = filter(x -> tryparse(Float64, x) !== nothing, tokens[2:end])
-            push!(vertices, floats)
+    for line in data
+        tokens = split(line, r"\s+")  # Split on arbitrary whitespace using a regex
+    println(tokens)
+        if tokens[1] == "v"
+            push!(vertices, parse.(Float64, tokens[2:end]))
+        elseif tokens[1] == "f"
+            push!(faces, parse.(Int, tokens[2:end]))
         else
-            error("Invalid 'v' line: Expected at least one number after 'v'.")
+            error(raw"Invalid .obj file format: The file should contain only 'v' and 'f' lines. Please check your .obj file in a text editor to ensure it adheres to this format. Check the .obj file examples in the SmallBodyGravity's GitHub page to check how it should look like.")
         end
-    elseif tokens[1] == "f"
-        # Ensure there are at least 2 tokens (one for 'f' and one for the first index)
-        if length(tokens) > 1
-            # Filter the tokens that can be parsed as Int
-            ints = filter(x -> tryparse(Int, x) !== nothing, tokens[2:end])
-            push!(faces, ints)
-        else
-            error("Invalid 'f' line: Expected at least one index after 'f'.")
-        end
-    else
-        error(raw"Invalid .obj file format: The file should contain only 'v' and 'f' lines. Please check your .obj file in a text editor to ensure it adheres to this format. Check the .obj file examples in the SmallBodyGravity's GitHub page to check how it should look like.")
     end
-end
-
     
     # Convert to matrices
     vertices = collect(hcat(vertices...)')
