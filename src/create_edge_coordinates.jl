@@ -18,9 +18,12 @@ function create_edge_coordinates(filename_in::String, filename_out::String, fold
     for line in data
         tokens = split(line, r"\s+")  # Split on arbitrary whitespace using a regex
         if tokens[1] == "v"
-            push!(vertices, parse.(Float64, tokens[2:end]))
+            # Filter the tokens that can be parsed as Float64
+            floats = filter(x -> tryparse(Float64, x) !== nothing, tokens[2:end])
+            push!(vertices, floats)
         elseif tokens[1] == "f"
-            push!(faces, parse.(Int, tokens[2:end]))
+            ints = filter(x -> tryparse(Int, x) !== nothing, tokens[2:end])
+            push!(faces, ints)
         else
             error(raw"Invalid .obj file format: The file should contain only 'v' and 'f' lines. Please check your .obj file in a text editor to ensure it adheres to this format. Check the .obj file examples in the SmallBodyGravity's GitHub page to check how it should look like.")
         end
