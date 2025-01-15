@@ -5,10 +5,6 @@ using DelimitedFiles
 using Plots
 using ProgressMeter
 
-
-using LinearAlgebra
-include("polyhedron_model_debug.jl")
-
 # Constants and polyhedron processing
 bennu_mass = 7.329e10
 polyhedron_file = "bennu.obj"
@@ -65,7 +61,7 @@ progress = Progress(total_iterations, desc="Calculating gravitational potential.
 for (i, z) in enumerate(z_range)
         for (j, x) in enumerate(x_range)
                 local r_vec = [x, 0.0, z]  # Field point
-                U_grid[i, j], Grav_Acceleration, _, _, P = polyhedron_model_debug(p, r_vec)  # Compute gravitational potential
+                U_grid[i, j], Grav_Acceleration, _, _, P = polyhedron_model(p, r_vec)  # Compute gravitational potential
                 if P == 1 # so that the potential inside the body is not plotted
                         U_grid[i,j] = NaN
                 end
