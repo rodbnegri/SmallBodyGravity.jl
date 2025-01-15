@@ -17,6 +17,8 @@ function create_edge_coordinates(filename_in::String, filename_out::String, fold
     
     for line in data
         tokens = split(line, r"\s+")  # Split on arbitrary whitespace using a regex
+    # Filter out empty tokens, if any exist after cleaning
+    tokens = filter(x -> !isempty(x), tokens)  # Remove empty tokens
     println(tokens)
         if tokens[1] == "v"
             push!(vertices, parse.(Float64, tokens[2:end]))
