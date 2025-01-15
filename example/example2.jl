@@ -24,8 +24,11 @@ function EoM(dX, X, p, t)
 	r_vec_BF = R_I_to_BF * r_vec
 	
 	# calculate the acceleration
-	_, Acceleration, Laplacian = polyhedron_model(p_polyhedron, r_vec_BF)
+	_, Acceleration, _, _, P = polyhedron_model(p_polyhedron, r_vec_BF)
 	
+	if P != 0
+		println("!!! The spacecraft collided !!!")
+	end
 	
 	# Equations of Motion
 	dX[1:3] = v_vec
@@ -85,7 +88,7 @@ X0 = vcat(r0, v0)
 # Time span for integration
 tspan = (0.0, tf)
 
-println("wait, the integration will take a long time (the spherical harmonics model that is being ported to Julia will solve this)")
+println("Wait, the integration will take a long time (the spherical harmonics model that is being ported to Julia will solve this)")
 # Solve the differential equations with Vern9 solver
 prob = ODEProblem(EoM, X0, tspan, p)
 sol = solve(prob, Vern9(), reltol=1e-8, abstol=1e-8)

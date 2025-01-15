@@ -47,8 +47,8 @@ e_e .*= 1000  # m
 p = (centroid_edges, centroid_faces, e_e, edges, faces, vertex, n_f, n_f_e, n_fp_e, r_e_1, r_e_2, r_f_1, r_f_2, r_f_3, G, sigma)
 
 # Set up grid for x and z
-x_range = -600:50.0:600  # x-coordinates (in meters)
-z_range = -600:50.0:600  # z-coordinates (in meters)
+x_range = -600:10.0:600  # x-coordinates (in meters)
+z_range = -600:10.0:600  # z-coordinates (in meters)
 
 # Initialize array to store gravitational potential U
 U_grid = zeros(length(z_range), length(x_range))
