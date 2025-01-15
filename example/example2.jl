@@ -17,7 +17,7 @@ function EoM(dX, X, p, t)
 	
 	r_vec = X[1:3]
 	v_vec = X[4:6]
-	# Rotation matrix from inertial to body-fixed frame
+  # Rotation matrix from inertial to body-fixed frame
 	R_I_to_BF = [cos(omega * t) -sin(omega * t) 0; sin(omega * t) cos(omega * t) 0; 0 0 1]
 	
 	# position in the body-fixed frame
@@ -35,20 +35,21 @@ function EoM(dX, X, p, t)
 	dX[4:6] = R_I_to_BF' * Acceleration
 end
 
-omega = 4.296057 / 3600.0 # rotation period [rad/s]
-mass = 2.27e13
-polyhedron_file = "1996HW1.obj"
+omega = 12.4043 / 3600.0 # rotation period [rad/s]
+mass = 9.982e12
+polyhedron_file = "67P.obj"
 G = 6.6743e-11
 
 # integration time
-tf = 2 * 24.0 * 3600.0
+tf = 3 * 24.0 * 3600.0
 
 process_polyhedron(polyhedron_file, mass)
 
-# Bennu density for the used mass and shape 
+# 67P density for the used mass and shape 
 # (!!! use the density from the generated `polyhedron_properties.txt` file !!!)
-sigma = 1177.0535049082152
+sigma = 540.1361545263038
 
+sleep(1)
 # Load all necessary data files into variables
 centroid_edges = readdlm("centroid_edges.dat")
 centroid_faces = readdlm("centroid_faces.dat")
@@ -81,8 +82,8 @@ p_polyhedron = (centroid_edges, centroid_faces, e_e, edges, faces, vertex, n_f, 
 p = (omega, p_polyhedron)
 
 # Initial conditions 
-r0 = [0.0, 100.0, 400.0]  # initial position in meters
-v0 = [-0.08, 0.08, 0.0]     # initial velocity in m/s
+r0 = [0.0, -2e3, 4e3]  # initial position in meters
+v0 = sqrt(G*mass/norm(r0)) * [-0.7071, 0.7071, 0.0]     # initial velocity in m/s
 X0 = vcat(r0, v0)
 
 # Time span for integration
