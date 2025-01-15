@@ -47,8 +47,8 @@ e_e .*= 1000  # m
 p = (centroid_edges, centroid_faces, e_e, edges, faces, vertex, n_f, n_f_e, n_fp_e, r_e_1, r_e_2, r_f_1, r_f_2, r_f_3, G, sigma)
 
 # Set up grid for x and z
-x_range = -1000:20.0:1000  # x-coordinates (in meters)
-z_range = -1000:20.0:1000  # z-coordinates (in meters)
+x_range = -600:50.0:600  # x-coordinates (in meters)
+z_range = -600:50.0:600  # z-coordinates (in meters)
 
 # Initialize array to store gravitational potential U
 U_grid = zeros(length(z_range), length(x_range))
@@ -61,8 +61,8 @@ progress = Progress(total_iterations, desc="Calculating gravitational potential.
 for (i, z) in enumerate(z_range)
         for (j, x) in enumerate(x_range)
                 local r_vec = [x, 0.0, z]  # Field point
-                U_grid[i, j], Grav_Acceleration, Laplacian = polyhedron_model(p, r_vec)  # Compute gravitational potential
-                if abs(Laplacian) >= 1e-18 # so that the potential inside the body is not plotted
+                U_grid[i, j], Grav_Acceleration, Laplacian, _, P = polyhedron_model(p, r_vec)  # Compute gravitational potential
+                if P >= 1 # so that the potential inside the body is not plotted
                         U_grid[i,j] = NaN
                 end
                 # Update progress
