@@ -43,7 +43,7 @@
 #          2: r_vec is on a face of the body
 #          3: r_vec is on a edge or vertex
 #
-function polyhedron_model(p, r_vec)
+function polyhedron_model_debug(p, r_vec)
   
   centroid_edges, centroid_faces, e_e, edges, facets, vertex, n_f, n_f_e, n_fp_e, r_e_1, r_e_2, r_f_1, r_f_2, r_f_3, G, sigma = p
   
@@ -113,8 +113,7 @@ function polyhedron_model(p, r_vec)
   
   H = G * sigma * ( sum_e_H - sum_f_H )
   
-  gamma = L / G / sigma
-  
+  gamma = - L / G / sigma
   epsilon = 1e-8
   if isapprox(gamma, 4*pi, atol=epsilon)
     P = 1

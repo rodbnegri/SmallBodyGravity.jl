@@ -113,8 +113,7 @@ function polyhedron_model(p, r_vec)
   
   H = G * sigma * ( sum_e_H - sum_f_H )
   
-  gamma = L / G / sigma
-  
+  gamma = - L / G / sigma
   epsilon = 1e-8
   if isapprox(gamma, 4*pi, atol=epsilon)
     P = 1
