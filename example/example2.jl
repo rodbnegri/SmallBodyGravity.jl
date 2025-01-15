@@ -36,8 +36,8 @@ function EoM(dX, X, p, t)
 end
 
 omega = 4.296057 / 3600.0 # rotation period [rad/s]
-mass = 7.329e10
-polyhedron_file = "bennu.obj"
+mass = 2.27e13
+polyhedron_file = "1996HW1.obj"
 G = 6.6743e-11
 
 # integration time
