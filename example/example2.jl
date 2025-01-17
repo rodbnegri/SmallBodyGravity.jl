@@ -1,5 +1,5 @@
 # This script will use the SmallBodyGravity package to calculate the orbit of a spacecraft
-# around the asteroid Bennu (in an inertial frame)
+# around the comet 67P/Churyumov–Gerasimenko (in an inertial frame)
 
 
 using DifferentialEquations # to integrate the trajectory 
